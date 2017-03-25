@@ -1,33 +1,17 @@
 
-var isNodeJS = require('isNodeJS');
-var isReactNative = require('isReactNative');
-
-var immediate;
-
-if (isNodeJS) {
-  immediate = function(func) {
-    process.nextTick(func);
-  };
-} else if (isReactNative) {
-  immediate = function(func) {
-    global.setImmediate(func);
-  };
-} else {
-  immediate = function(func) {
-    global.setTimeout(func, 0);
-  };
-}
-
 var assertType = require('assertType');
 
-module.exports = function(context, func) {
+// Use a native promise to schedule functions. https://goo.gl/fuwiHB
+var promise = Promise.resolve();
+
+// This supports an optional `context` as the first argument.
+module.exports = function immediate(context, callback) {
   if (arguments.length > 1) {
-    assertType(func, Function);
-    immediate(function() {
-      func.call(context);
-    });
+    assertType(callback, Function);
+    promise.then(callback.bind(context));
   } else {
-    assertType(context, Function);
-    immediate(context);
+    callback = context;
+    assertType(callback, Function);
+    promise.then(callback);
   }
 };
