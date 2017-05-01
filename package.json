@@ -1,9 +1,7 @@
 {
   "name": "immediate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
-    "assertType": "aleclarson/assertType#2.0.1",
-    "isNodeJS": "aleclarson/isNodeJS#2.0.0",
-    "isReactNative": "aleclarson/isReactNative#2.0.0"
+    "assertType": "aleclarson/assertType#2.0.2"
   }
 }
