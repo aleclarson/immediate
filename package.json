@@ -2,6 +2,6 @@
   "name": "immediate",
   "version": "1.0.0",
   "dependencies": {
-    "assertType": "aleclarson/assertType#2.0.1"
+    "assertType": "aleclarson/assertType#2.0.2"
   }
 }
