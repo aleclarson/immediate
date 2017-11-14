@@ -1,7 +1,4 @@
 {
   "name": "immediate",
-  "version": "1.1.0",
-  "dependencies": {
-    "assertType": "aleclarson/assertType#2.0.2"
-  }
+  "version": "1.1.0"
 }
